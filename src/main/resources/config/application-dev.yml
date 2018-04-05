@@ -31,9 +31,12 @@ spring:
     jackson:
         serialization.indent_output: true
     data:
-        mongodb:
-            uri: mongodb://localhost:27017
-            database: log_work
+      mongodb:
+        host: localhost
+        port: 27017
+        database: logwork
+        username: logwork
+        password: logwork
     mail:
         host: localhost
         port: 25
