@@ -4,7 +4,8 @@
  */
 entity Team {
 	name String required,
-    description String
+    description String,
+
 }
 
 /**
@@ -35,19 +36,6 @@ entity LogWork {
     description String
 } 
  
-relationship OneToMany {
-	Team{projects} to Project{team}
-}
-
-relationship ManyToMany {
-	Team{users} to User{teams}
-}
-
-relationship ManyToOne {
-	LogWork{user} to User,
-    LogWork{project} to Project
-}
-
 // Set pagination options
 paginate LogWork with infinite-scroll
 
