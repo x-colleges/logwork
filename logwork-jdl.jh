@@ -1,0 +1,59 @@
+/**
+ * Team entity.
+ * @author Lam Le
+ */
+entity Team {
+	name String required,
+    description String
+}
+
+/**
+ * User entity.
+ * @author Lam Le
+ */
+entity User {
+    email String required,
+    password String required,
+    name String
+}
+
+/**
+ * Project entity.
+ * @author Lam Le
+ */
+entity Project {
+	name String required,
+    description String
+}
+
+/**
+ * LogWork entity.
+ * @author Lam Le
+ */
+entity LogWork {
+	logwork Float required,
+    description String
+} 
+ 
+relationship OneToMany {
+	Team{projects} to Project{team}
+}
+
+relationship ManyToMany {
+	Team{users} to User{teams}
+}
+
+relationship ManyToOne {
+	LogWork{user} to User,
+    LogWork{project} to Project
+}
+
+// Set pagination options
+paginate LogWork with infinite-scroll
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with mySuffix
