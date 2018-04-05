@@ -1,0 +1,8 @@
+version: '2'
+services:
+    log_work-mongodb:
+        image: mongo:3.4.10
+        ports:
+            - "27017:27017"
+        # volumes:
+        #     - ~/volumes/jhipster/log_work/mongodb/:/data/db/

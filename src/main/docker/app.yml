@@ -1,0 +1,15 @@
+version: '2'
+services:
+    log_work-app:
+        image: log_work
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATA_MONGODB_URI=mongodb://log_work-mongodb:27017
+            - SPRING_DATA_MONGODB_DATABASE=log_work
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    log_work-mongodb:
+        extends:
+            file: mongodb.yml
+            service: log_work-mongodb
